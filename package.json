@@ -2,6 +2,7 @@
   "name": "festivaldemusica",
   "version": "1.0.0",
   "description": "Aprendiendo SASS y NPM",
+  "type": "module",
   "keywords": [
     "SASS",
     "NPM",
@@ -17,12 +18,14 @@
   },
   "license": "ISC",
   "author": "Arnaldo Morales",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch src/scss:build/css"
+    "sass": "sass --watch src/scss:build/css",
+    "dev": "gulp dev"
   },
   "devDependencies": {
+    "gulp": "^5.0.1",
+    "gulp-sass": "^6.0.1",
     "sass": "^1.97.3"
   }
 }

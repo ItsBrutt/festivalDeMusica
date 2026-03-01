@@ -20,9 +20,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass --watch src/scss:build/css"
   },
-  "dependencies": {
+  "devDependencies": {
     "sass": "^1.97.3"
   }
 }

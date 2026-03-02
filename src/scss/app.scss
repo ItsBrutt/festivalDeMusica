@@ -1,11 +1,13 @@
+@use "base/variables" as v;
+@use "base/normalize";
+
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: v.$fuente_principal;
   font-optical-sizing: auto;
   font-style: normal;
+  color: v.$negro;
 }
-h1 {
-    font-weight: 900;
-}
+
 .header {
     background-color: blue;
 }

@@ -1,0 +1,44 @@
+@use "sass:color";
+
+// --- THE PLACEHOLDER WAY (Static/DRY) ---
+// Compiles into a single shared rule with multiple selectors.
+%button-base {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    @extend %button-base;
+    background-color: blue;
+}
+
+.btn-secondary {
+    @extend %button-base;
+    background-color: grey;
+}
+
+
+// --- THE MIXIN WAY (Dynamic/Parametric) ---
+// Compiles duplicate code into each selector location.
+@mixin dynamic-card($bg: white, $border: 1px solid black) {
+    background-color: $bg;
+    border: $border;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    &:hover {
+        background-color: color.adjust($bg, $lightness: -5%);
+    }
+}
+
+.card-product {
+    @include dynamic-card(#f9f9f9);
+}
+
+.card-user {
+    @include dynamic-card(#eef, 2px dashed blue);
+}

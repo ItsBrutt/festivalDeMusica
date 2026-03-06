@@ -1,0 +1,26 @@
+@use "sass:math";
+
+/// Calculates a fluid value (typography or spacing) based on viewport width.
+/// @param {Number} $min - Minimum value in pixels.
+/// @param {Number} $max - Maximum value in pixels.
+/// @param {Number} $v-min - Minimum viewport width (default: 320px).
+/// @param {Number} $v-max - Maximum viewport width (default: 1280px).
+@function fluid($min, $max, $v-min: 320, $v-max: 1280) {
+    $k: math.div(($max - $min), ($v-max - $v-min));
+    $b: $min - $k * $v-min;
+    
+    // Convert to rem (assuming 16px base)
+    $b-rem: math.div($b, 16) * 1rem;
+    $k-vw: $k * 100 * 1vw;
+
+    @return clamp(#{$min * 0.0625}rem, #{$b-rem} + #{$k-vw}, #{$max * 0.0625}rem);
+}
+
+// Usage:
+h1 {
+    font-size: fluid(32, 64); // Smoothly scales from 32px to 64px between 320px and 1280px viewport
+}
+
+section {
+    padding: fluid(20, 100) 0;
+}

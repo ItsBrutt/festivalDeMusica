@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
@@ -41,12 +42,12 @@
 .bg-amarillo {
     background-color: v.$amarillo;
     li:nth-child(odd){
-        background-color: lighten(v.$amarillo, 10%);
+        background-color: color.adjust(v.$amarillo, $lightness: 10%);
     }
 }
 .bg-verde {
     background-color: v.$verde;
     li:nth-child(even){
-        background-color: lighten(v.$verde, 10%);
+        background-color: color.adjust(v.$verde, $lightness: 10%);
     }
 }
